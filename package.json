@@ -1,0 +1,8 @@
+{
+  "name": "sinners-testimony",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}

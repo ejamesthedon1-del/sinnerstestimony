@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Sinners Testimony</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --bg-card: rgba(18, 18, 18, 0.95);
+      --accent: #c41e3a;
+      --accent-dim: rgba(196, 30, 58, 0.3);
+      --text: #f5f5f4;
+      --text-muted: #a8a29e;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Lock screen overlay */
+    .lock-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* Subtle gradient + noise texture */
+    .lock-screen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 20%, var(--accent-dim) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 100% at 50% 100%, rgba(20, 20, 20, 0.8) 0%, transparent 60%);
+      z-index: -2;
+    }
+
+    .lock-screen::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 12vw, 7rem);
+      letter-spacing: 0.08em;
+      line-height: 0.95;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.4rem 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .signup-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      backdrop-filter: blur(12px);
+    }
+
+    .signup-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .signup-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Klaviyo form container - paste your embed code here */
+    #klaviyo-form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #klaviyo-form-container input,
+    #klaviyo-form-container button {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+    }
+
+    #klaviyo-form-container input {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 1rem;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #klaviyo-form-container input::placeholder {
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    #klaviyo-form-container input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    #klaviyo-form-container button {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 0.9rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    #klaviyo-form-container button:hover {
+      background: #a0182e;
+      transform: translateY(-1px);
+    }
+
+    #klaviyo-form-container button:active {
+      transform: translateY(0);
+    }
+
+    .sms-disclosure {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .sms-disclosure a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .sms-disclosure a:hover {
+      text-decoration: underline;
+    }
+
+    /* Klaviyo embed wrapper - for when you paste Klaviyo's embed code */
+    .klaviyo-embed-wrapper {
+      min-height: 200px;
+    }
+
+    .klaviyo-embed-wrapper iframe,
+    .klaviyo-embed-wrapper form {
+      width: 100%;
+    }
+
+    /* Override Klaviyo default styles to match our design */
+    .klaviyo-embed-wrapper .klaviyo-form input,
+    .klaviyo-embed-wrapper .klaviyo-form button {
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid var(--border) !important;
+      color: var(--text) !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="lock-screen">
+    <div class="brand">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <h1 class="brand-name">Sinners<br>Testimony</h1>
+      <p class="tagline">Be the first to know when we open.</p>
+    </div>
+
+    <div class="signup-card">
+      <h2>Join the list</h2>
+      <p>Sign up for early access, drops, and exclusives.</p>
+
+      <!-- 
+        KLAVIYO INTEGRATION OPTION 1: Custom form
+        Replace the content below with your Klaviyo embed code from:
+        Klaviyo → Sign-up forms → Create form → Embed → Copy code
+        
+        In Klaviyo's form builder, add:
+        - Email field (required)
+        - Phone number field (for SMS)
+        - SMS consent checkbox/disclosure
+      -->
+      <div id="klaviyo-form-container" class="klaviyo-embed-wrapper">
+        <div class="klaviyo-form-VksnpD"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    KLAVIYO ONSITE TRACKING (required for forms to work)
+    Replace YOUR_PUBLIC_API_KEY with your Klaviyo public API key from:
+    Klaviyo → Settings → API Keys → Create key (Public)
+  -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js"></script>
+</body>
+</html>
