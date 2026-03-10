@@ -40,6 +40,7 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      padding-bottom: 4rem;
       position: relative;
       isolation: isolate;
     }
@@ -206,6 +207,42 @@
       border: 1px solid var(--border) !important;
       color: var(--text) !important;
     }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success p {
+      color: #86efac;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .page-footer {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    .page-footer a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -232,15 +269,31 @@
       -->
       <div id="klaviyo-form-container" class="klaviyo-embed-wrapper">
         <div class="klaviyo-form-VksnpD"></div>
+        <div id="form-success" class="form-success">
+          <p>✓ You&rsquo;re on the list. We&rsquo;ll notify you when we open.</p>
+        </div>
       </div>
     </div>
+
+    <footer class="page-footer">
+      <a href="/privacy.html">Privacy Policy</a>
+    </footer>
   </div>
 
-  <!-- 
-    KLAVIYO ONSITE TRACKING (required for forms to work)
-    Replace YOUR_PUBLIC_API_KEY with your Klaviyo public API key from:
-    Klaviyo → Settings → API Keys → Create key (Public)
-  -->
-  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js"></script>
+  <!-- Klaviyo onsite tracking -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js?company_id=YkhQZ2"></script>
+  <script type="text/javascript">
+    !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+  </script>
+  <script type="text/javascript">
+    window.addEventListener("klaviyoForms", function(e) {
+      if (e.detail.type === "submit") {
+        var form = document.querySelector(".klaviyo-form-VksnpD");
+        var success = document.getElementById("form-success");
+        if (form) form.style.display = "none";
+        if (success) success.classList.add("visible");
+      }
+    });
+  </script>
 </body>
 </html>
