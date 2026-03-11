@@ -56,14 +56,6 @@
       text-transform: uppercase;
     }
 
-    .tagline {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      font-weight: 400;
-    }
-
     .signup-card {
       background: var(--bg-card);
       border: none;
@@ -77,13 +69,13 @@
       font-size: 1.5rem;
       font-weight: 600;
       letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     .signup-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0;
     }
 
     /* Klaviyo form container - minimal styling to avoid conflicts */
@@ -125,7 +117,7 @@
       max-width: 100% !important;
       min-height: 48px !important;
       padding: 12px 16px !important;
-      margin: 4px 0 !important;
+      margin: 2px 0 !important;
       font-family: 'Satoshi', sans-serif !important;
       font-size: 16px !important;
       color: #000000 !important;
@@ -157,11 +149,12 @@
       margin-top: 0 !important;
     }
 
-    /* Tighter spacing between form fields */
+    /* Tighter spacing between form fields - button close to email input */
     .klaviyo-form-VksnpD form > div,
     .klaviyo-form-VksnpD form > p,
     .klaviyo-embed-wrapper form > div {
-      margin-bottom: 2px !important;
+      margin-bottom: 0 !important;
+      margin-top: 0 !important;
     }
 
     /* Country code dropdown & non-submit buttons - white background, black text (no black covering) */
@@ -200,7 +193,7 @@
       letter-spacing: 0.05em !important;
       min-height: 48px !important;
       padding: 12px 16px !important;
-      margin: 8px 0 !important;
+      margin: 2px 0 !important;
       width: 100% !important;
       border-radius: 0 !important;
       font-family: 'Satoshi', sans-serif !important;
@@ -262,7 +255,6 @@
   <div class="lock-screen">
     <div class="brand">
       <h1 class="brand-name">Sinners<br>Testimony</h1>
-      <p class="tagline">Be the first to know when we open.</p>
     </div>
 
     <div class="signup-card">
