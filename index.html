@@ -293,23 +293,26 @@
     !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
   </script>
   <script type="text/javascript">
-    // Change Submit to Subscribe on form button; hide 2nd button
+    // Change Submit to Subscribe; hide all but first submit button (Klaviyo may render duplicate)
     function updateSubscribeButton() {
       var container = document.querySelector(".klaviyo-form-VksnpD");
       if (!container) return;
-      var btns = container.querySelectorAll("button[type='submit'], input[type='submit'], button");
+      var btns = container.querySelectorAll("button[type='submit'], input[type='submit']");
       btns.forEach(function(btn, i) {
-        if (btn.type === "submit" || (btn.tagName === "BUTTON" && !btn.type)) {
-          if (i === 1) btn.style.display = "none"; // Hide 2nd button
+        if (i === 0) {
+          btn.style.display = "";
           if (btn.textContent.trim() === "Submit" || btn.value === "Submit") {
             btn.textContent = "Subscribe";
             if (btn.value) btn.value = "Subscribe";
           }
+        } else {
+          btn.style.display = "none";
         }
       });
     }
-    setTimeout(updateSubscribeButton, 1500);
-    document.addEventListener("klaviyoForms", function() { setTimeout(updateSubscribeButton, 500); });
+    setTimeout(updateSubscribeButton, 1000);
+    setTimeout(updateSubscribeButton, 2500);
+    document.addEventListener("klaviyoForms", function() { setTimeout(updateSubscribeButton, 300); });
 
     window.addEventListener("klaviyoForms", function(e) {
       if (e.detail.type === "submit") {
