@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coming Soon | Sinners Testimony®</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
   <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="preload" href="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js?company_id=YkhQZ2" as="script">
   <style>
     :root {
-      --bg: #ffffff;
-      --bg-card: #ffffff;
-      --text: #000000;
-      --text-muted: #525252;
-      --border: rgba(0, 0, 0, 0.12);
-      --input-border: #000000;
+      --bg: #000000;
+      --bg-card: #000000;
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+      --border: rgba(255, 255, 255, 0.2);
+      --input-border: #ffffff;
     }
 
     * {
@@ -72,17 +74,19 @@
 
     .signup-card h2 {
       font-family: 'Satoshi', sans-serif;
-      font-size: 1.5rem;
+      font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       margin-bottom: 0.1rem;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .signup-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
       margin-bottom: 0;
+      text-align: center;
     }
 
     /* Klaviyo form container - email input much closer to subtext */
@@ -90,10 +94,11 @@
       display: block;
       margin-top: -0.75rem;
       padding-top: 0;
+      position: relative;
     }
 
     .klaviyo-embed-wrapper {
-      min-height: 250px;
+      min-height: 120px;
       overflow: visible !important;
     }
 
@@ -110,7 +115,7 @@
       opacity: 1 !important;
     }
 
-    /* Input & select - sharp corners, same style (white bg, black border) */
+    /* Input & select - sharp corners, dark theme (dark bg, white text/border) */
     .klaviyo-form-VksnpD input,
     .klaviyo-form-VksnpD input[type="email"],
     .klaviyo-form-VksnpD input[type="tel"],
@@ -127,9 +132,9 @@
       margin: 2px 0 !important;
       font-family: 'Satoshi', sans-serif !important;
       font-size: 16px !important;
-      color: #000000 !important;
-      background: #ffffff !important;
-      border: 1px solid #000000 !important;
+      color: #ffffff !important;
+      background: #1a1a1a !important;
+      border: 1px solid #ffffff !important;
       border-radius: 0 !important;
       -webkit-appearance: none !important;
       appearance: none !important;
@@ -168,7 +173,7 @@
       margin-top: 0 !important;
     }
 
-    /* Country code dropdown & non-submit buttons - white background, black text (no black covering) */
+    /* Country code dropdown & non-submit buttons - dark theme */
     .klaviyo-form-VksnpD select,
     .klaviyo-form-VksnpD button:not([type="submit"]),
     .klaviyo-form-VksnpD [data-country-code],
@@ -176,9 +181,9 @@
     .klaviyo-form-VksnpD [class*="country"],
     .klaviyo-embed-wrapper select,
     .klaviyo-embed-wrapper button:not([type="submit"]) {
-      background: #ffffff !important;
-      color: #000000 !important;
-      border: 1px solid #000000 !important;
+      background: #1a1a1a !important;
+      color: #ffffff !important;
+      border: 1px solid #ffffff !important;
     }
 
     /* Hide 2nd and subsequent buttons - keep only 1 Subscribe button */
@@ -187,7 +192,7 @@
       display: none !important;
     }
 
-    /* Subscribe button - black background, white text (no Submit, just Subscribe) */
+    /* Subscribe button - white background, black text (CTA on dark page) */
     .klaviyo-form-VksnpD button[type="submit"],
     .klaviyo-form-VksnpD input[type="submit"],
     .klaviyo-form-VksnpD [type="submit"],
@@ -195,9 +200,9 @@
     .klaviyo-embed-wrapper input[type="submit"],
     .klaviyo-embed-wrapper [type="submit"] {
       display: block !important;
-      background: #000000 !important;
-      color: #ffffff !important;
-      border: 1px solid #000000 !important;
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #ffffff !important;
       cursor: pointer !important;
       font-weight: 600 !important;
       text-transform: uppercase !important;
@@ -213,7 +218,7 @@
 
     .klaviyo-form-VksnpD input::placeholder,
     .klaviyo-embed-wrapper input::placeholder {
-      color: #525252 !important;
+      color: #a3a3a3 !important;
       opacity: 1 !important;
     }
 
@@ -221,12 +226,75 @@
       display: none;
       text-align: center;
       padding: 1.5rem;
-      background: rgba(0, 0, 0, 0.04);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border);
     }
 
     .form-success.visible {
       display: block;
+    }
+
+    /* Inline placeholder so form area appears with page (no pop-in when Klaviyo loads) */
+    .form-placeholder {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0;
+      pointer-events: none; /* non-interactive until Klaviyo replaces it */
+    }
+    .form-placeholder.is-hidden {
+      display: none !important;
+    }
+    .form-placeholder .ph-input {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      margin: 2px 0;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 16px;
+      color: #ffffff;
+      background: #1a1a1a;
+      border: 1px solid #ffffff;
+      border-radius: 0;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-placeholder .ph-input::placeholder {
+      color: #a3a3a3;
+    }
+    .form-placeholder .ph-btn {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      margin: 2px 0;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+      border-radius: 0;
+      box-sizing: border-box;
+      cursor: default;
+    }
+    .klaviyo-form-VksnpD:not(.loaded) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .klaviyo-form-VksnpD.loaded {
+      position: static;
+      width: auto;
+      height: auto;
+      opacity: 1;
+      pointer-events: auto;
+      overflow: visible;
     }
 
     .form-fallback {
@@ -272,7 +340,7 @@
     </div>
 
     <div class="signup-card">
-      <h2>Join the list</h2>
+      <h2>JOIN THE LIST</h2>
       <p>Sign up for early access, drops, and exclusives.</p>
 
       <!-- 
@@ -286,6 +354,10 @@
         - SMS consent checkbox/disclosure
       -->
       <div id="klaviyo-form-container" class="klaviyo-embed-wrapper">
+        <form id="form-placeholder" class="form-placeholder" novalidate>
+          <input type="email" class="ph-input" placeholder="Email" readonly tabindex="-1" aria-hidden="true">
+          <button type="button" class="ph-btn" tabindex="-1" aria-hidden="true">Subscribe</button>
+        </form>
         <div class="klaviyo-form-VksnpD"></div>
         <div id="form-fallback" class="form-fallback" style="display: none;">
           <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">Having trouble? Email us to join the list: <a href="mailto:hello@sinnerstestimony.com" style="color: var(--text); font-weight: 500;">hello@sinnerstestimony.com</a></p>
@@ -303,16 +375,39 @@
     </footer>
   </div>
 
-  <!-- Klaviyo onsite tracking -->
-  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js?company_id=YkhQZ2"></script>
+  <!-- Klaviyo onsite tracking: defer = runs at DOM ready, form injects sooner -->
+  <script defer type="text/javascript" src="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js?company_id=YkhQZ2"></script>
   <script type="text/javascript">
     !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
   </script>
   <script type="text/javascript">
+    // Switch from placeholder to real form when Klaviyo injects (no pop-in)
+    function useKlaviyoForm() {
+      var container = document.querySelector(".klaviyo-form-VksnpD");
+      var placeholder = document.getElementById("form-placeholder");
+      var hasForm = container && (container.querySelector("input") || container.querySelector("form"));
+      if (hasForm && placeholder) {
+        container.classList.add("loaded");
+        placeholder.classList.add("is-hidden");
+        return true;
+      }
+      return false;
+    }
+    // Detect Klaviyo injection immediately via MutationObserver
+    (function() {
+      var container = document.querySelector(".klaviyo-form-VksnpD");
+      if (!container) return;
+      var observer = new MutationObserver(function() {
+        if (useKlaviyoForm()) observer.disconnect();
+      });
+      observer.observe(container, { childList: true, subtree: true });
+    })();
+
     // Change Submit to Subscribe; hide all but first submit button (Klaviyo may render duplicate)
     function updateSubscribeButton() {
       var container = document.querySelector(".klaviyo-form-VksnpD");
       if (!container) return;
+      useKlaviyoForm();
       var btns = container.querySelectorAll("button[type='submit'], input[type='submit']");
       btns.forEach(function(btn, i) {
         if (i === 0) {
@@ -326,9 +421,14 @@
         }
       });
     }
+    useKlaviyoForm();
+    setTimeout(useKlaviyoForm, 500);
     setTimeout(updateSubscribeButton, 1000);
     setTimeout(updateSubscribeButton, 2500);
-    document.addEventListener("klaviyoForms", function() { setTimeout(updateSubscribeButton, 300); });
+    document.addEventListener("klaviyoForms", function() {
+      useKlaviyoForm();
+      setTimeout(updateSubscribeButton, 300);
+    });
 
     window.addEventListener("klaviyoForms", function(e) {
       if (e.detail.type === "submit") {
