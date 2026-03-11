@@ -135,7 +135,7 @@
       max-width: 100% !important;
       min-height: 44px !important;
       padding: 12px 16px !important;
-      margin: 8px 0 !important;
+      margin: 4px 0 !important;
       font-family: 'Satoshi', sans-serif !important;
       font-size: 16px !important;
       color: #000000 !important;
@@ -143,6 +143,35 @@
       border: 1px solid #000000 !important;
       -webkit-appearance: none !important;
       appearance: none !important;
+    }
+
+    /* Phone field: country code + number side-by-side (not stacked) */
+    .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]),
+    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]) {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 8px !important;
+      align-items: stretch !important;
+    }
+
+    .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]) select,
+    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]) select {
+      width: auto !important;
+      max-width: 110px !important;
+      flex: 0 0 auto !important;
+    }
+
+    .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]) input,
+    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]) input {
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+
+    /* Tighter spacing between form fields (email closer to phone) */
+    .klaviyo-form-VksnpD form > div,
+    .klaviyo-form-VksnpD form > p,
+    .klaviyo-embed-wrapper form > div {
+      margin-bottom: 2px !important;
     }
 
     /* Country code dropdown & non-submit buttons - white background, black text (no black covering) */
