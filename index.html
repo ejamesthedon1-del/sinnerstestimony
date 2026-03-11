@@ -146,49 +146,19 @@
       appearance: none !important;
     }
 
-    /* Phone field: unified single box like email - country code + number as one seamless field */
+    /* Hide phone number field */
     .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]),
-    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]) {
-      display: flex !important;
-      flex-direction: row !important;
-      gap: 0 !important;
-      align-items: stretch !important;
-      border: 1px solid #000000 !important;
-      border-radius: 0 !important;
-      min-height: 48px !important;
-      margin: 4px 0 !important;
+    .klaviyo-form-VksnpD div:has(input[type="tel"]):not(:has(input[type="email"])),
+    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]),
+    .klaviyo-embed-wrapper div:has(input[type="tel"]):not(:has(input[type="email"])) {
+      display: none !important;
     }
 
-    .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]) select,
-    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]) select {
-      width: auto !important;
-      max-width: 100px !important;
-      flex: 0 0 auto !important;
-      border: none !important;
-      border-right: 1px solid #000000 !important;
-      border-radius: 0 !important;
-      margin: 0 !important;
-    }
-
-    .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]) input,
-    .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]) input {
-      flex: 1 !important;
-      min-width: 0 !important;
-      border: none !important;
-      border-radius: 0 !important;
-      margin: 0 !important;
-    }
-
-    /* Tighter spacing between form fields (email closer to phone) */
+    /* Tighter spacing between form fields */
     .klaviyo-form-VksnpD form > div,
     .klaviyo-form-VksnpD form > p,
     .klaviyo-embed-wrapper form > div {
       margin-bottom: 2px !important;
-    }
-
-    /* Country code select - match input padding */
-    .klaviyo-form-VksnpD div:has(select):has(input[type="tel"]) select {
-      padding: 12px 12px !important;
     }
 
     /* Country code dropdown & non-submit buttons - white background, black text (no black covering) */
@@ -204,23 +174,28 @@
       border: 1px solid #000000 !important;
     }
 
-    /* Only the submit button gets black background */
+    /* Subscribe button - black background, white text (no Submit, just Subscribe) */
     .klaviyo-form-VksnpD button[type="submit"],
+    .klaviyo-form-VksnpD input[type="submit"],
     .klaviyo-form-VksnpD [type="submit"],
     .klaviyo-embed-wrapper button[type="submit"],
+    .klaviyo-embed-wrapper input[type="submit"],
     .klaviyo-embed-wrapper [type="submit"] {
+      display: block !important;
       background: #000000 !important;
       color: #ffffff !important;
-      border-color: #000000 !important;
+      border: 1px solid #000000 !important;
       cursor: pointer !important;
       font-weight: 600 !important;
       text-transform: uppercase !important;
       letter-spacing: 0.05em !important;
-      min-height: 44px !important;
+      min-height: 48px !important;
       padding: 12px 16px !important;
       margin: 8px 0 !important;
       width: 100% !important;
       border-radius: 0 !important;
+      font-family: 'Satoshi', sans-serif !important;
+      font-size: 16px !important;
     }
 
     .klaviyo-form-VksnpD input::placeholder,
@@ -318,6 +293,23 @@
     !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
   </script>
   <script type="text/javascript">
+    // Change Submit to Subscribe on form button
+    function updateSubscribeButton() {
+      var container = document.querySelector(".klaviyo-form-VksnpD");
+      if (!container) return;
+      var btns = container.querySelectorAll("button[type='submit'], input[type='submit'], button");
+      btns.forEach(function(btn) {
+        if (btn.type === "submit" || (btn.tagName === "BUTTON" && !btn.type)) {
+          if (btn.textContent.trim() === "Submit" || btn.value === "Submit") {
+            btn.textContent = "Subscribe";
+            if (btn.value) btn.value = "Subscribe";
+          }
+        }
+      });
+    }
+    setTimeout(updateSubscribeButton, 1500);
+    document.addEventListener("klaviyoForms", function() { setTimeout(updateSubscribeButton, 500); });
+
     window.addEventListener("klaviyoForms", function(e) {
       if (e.detail.type === "submit") {
         var form = document.querySelector(".klaviyo-form-VksnpD");
