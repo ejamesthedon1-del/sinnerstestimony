@@ -46,21 +46,6 @@
     .brand {
       text-align: center;
       margin-bottom: 1.5rem;
-      perspective: 1200px;
-      min-height: 10rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .brand-inner {
-      transform-style: preserve-3d;
-      animation: logo-spin 8s linear infinite;
-    }
-
-    @keyframes logo-spin {
-      0% { transform: rotateY(0deg) rotateX(-5deg); }
-      100% { transform: rotateY(360deg) rotateX(-5deg); }
     }
 
     .brand-name .tm {
@@ -77,16 +62,6 @@
       line-height: 0.95;
       color: var(--text);
       text-transform: uppercase;
-      /* 3D extrusion effect via layered text-shadow (dark theme) */
-      text-shadow:
-        1px 1px 0 rgba(255,255,255,0.15),
-        2px 2px 0 rgba(255,255,255,0.12),
-        3px 3px 0 rgba(255,255,255,0.09),
-        4px 4px 0 rgba(255,255,255,0.06),
-        5px 5px 0 rgba(255,255,255,0.03),
-        6px 6px 12px rgba(0,0,0,0.6),
-        10px 10px 24px rgba(0,0,0,0.5);
-      transform: translateZ(0);
     }
 
     .signup-card {
@@ -361,9 +336,7 @@
 <body>
   <div class="lock-screen">
     <div class="brand">
-      <div class="brand-inner">
-        <h1 class="brand-name">Sinners<br>Testimony<span class="tm">®</span></h1>
-      </div>
+      <h1 class="brand-name">Sinners<br>Testimony<span class="tm">®</span></h1>
     </div>
 
     <div class="signup-card">
