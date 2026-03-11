@@ -80,6 +80,23 @@
       margin-bottom: 0.1rem;
       text-align: center;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .lock-icon {
+      width: 0.65rem;
+      height: 0.65rem;
+      opacity: 0.8;
+    }
+
+    .lock-icon path {
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
     }
 
     .signup-card p {
@@ -354,7 +371,7 @@
     </div>
 
     <div class="signup-card">
-      <h2>DROP 001 UNLOCKS SOON</h2>
+      <h2><svg class="lock-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="11" width="16" height="10" rx="1.5" fill="currentColor" stroke="none"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> DROP 001 UNLOCKS SOON</h2>
       <p>Sign up for early access, drops, and exclusives.</p>
 
       <!-- 
