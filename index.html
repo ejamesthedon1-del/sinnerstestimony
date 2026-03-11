@@ -247,7 +247,10 @@
       bottom: 1.5rem;
       left: 0;
       right: 0;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .page-footer a {
@@ -259,12 +262,6 @@
     .page-footer a:hover {
       color: var(--text);
       text-decoration: underline;
-    }
-
-    .page-footer-sep {
-      margin: 0 0.5rem;
-      color: var(--text-muted);
-      font-size: 0.8rem;
     }
   </style>
 </head>
@@ -301,7 +298,6 @@
 
     <footer class="page-footer">
       <a href="/ambassador.html">Become a brand ambassador</a>
-      <span class="page-footer-sep">·</span>
       <a href="/privacy.html">Privacy Policy</a>
     </footer>
   </div>
