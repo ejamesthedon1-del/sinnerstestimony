@@ -162,19 +162,9 @@
       border: 1px solid #000000 !important;
     }
 
-    /* Hide non-Klaviyo buttons: hide all in container, then show only those inside Klaviyo form */
-    #klaviyo-form-container button,
-    #klaviyo-form-container input[type="submit"] {
-      display: none !important;
-    }
-    .klaviyo-form-VksnpD form button,
-    .klaviyo-form-VksnpD form input[type="submit"] {
-      display: block !important;
-    }
-
-    /* Hide 2nd button if Klaviyo form has duplicates */
-    .klaviyo-form-VksnpD form button:nth-of-type(2),
-    .klaviyo-form-VksnpD form input[type="submit"]:nth-of-type(2) {
+    /* Hide 2nd and subsequent buttons - keep only 1 Subscribe button */
+    .klaviyo-form-VksnpD button:nth-of-type(n+2),
+    .klaviyo-form-VksnpD input[type="submit"]:nth-of-type(n+2) {
       display: none !important;
     }
 
