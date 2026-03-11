@@ -9,12 +9,12 @@
   <link rel="preload" href="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js?company_id=YkhQZ2" as="script">
   <style>
     :root {
-      --bg: #000000;
-      --bg-card: #000000;
-      --text: #ffffff;
-      --text-muted: #a3a3a3;
-      --border: rgba(255, 255, 255, 0.2);
-      --input-border: #ffffff;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #000000;
+      --text-muted: #525252;
+      --border: rgba(0, 0, 0, 0.12);
+      --input-border: #000000;
     }
 
     * {
@@ -115,7 +115,7 @@
       opacity: 1 !important;
     }
 
-    /* Input & select - sharp corners, dark theme (dark bg, white text/border) */
+    /* Input & select - sharp corners, white bg, black text */
     .klaviyo-form-VksnpD input,
     .klaviyo-form-VksnpD input[type="email"],
     .klaviyo-form-VksnpD input[type="tel"],
@@ -132,9 +132,9 @@
       margin: 2px 0 !important;
       font-family: 'Satoshi', sans-serif !important;
       font-size: 16px !important;
-      color: #ffffff !important;
-      background: #1a1a1a !important;
-      border: 1px solid #ffffff !important;
+      color: #000000 !important;
+      background: #ffffff !important;
+      border: 1px solid #000000 !important;
       border-radius: 0 !important;
       -webkit-appearance: none !important;
       appearance: none !important;
@@ -173,7 +173,7 @@
       margin-top: 0 !important;
     }
 
-    /* Country code dropdown & non-submit buttons - dark theme */
+    /* Country code dropdown & non-submit buttons */
     .klaviyo-form-VksnpD select,
     .klaviyo-form-VksnpD button:not([type="submit"]),
     .klaviyo-form-VksnpD [data-country-code],
@@ -181,9 +181,9 @@
     .klaviyo-form-VksnpD [class*="country"],
     .klaviyo-embed-wrapper select,
     .klaviyo-embed-wrapper button:not([type="submit"]) {
-      background: #1a1a1a !important;
-      color: #ffffff !important;
-      border: 1px solid #ffffff !important;
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #000000 !important;
     }
 
     /* Hide 2nd and subsequent buttons - keep only 1 Subscribe button */
@@ -192,7 +192,7 @@
       display: none !important;
     }
 
-    /* Subscribe button - white background, black text (CTA on dark page) */
+    /* Subscribe button - black background, white text */
     .klaviyo-form-VksnpD button[type="submit"],
     .klaviyo-form-VksnpD input[type="submit"],
     .klaviyo-form-VksnpD [type="submit"],
@@ -200,9 +200,9 @@
     .klaviyo-embed-wrapper input[type="submit"],
     .klaviyo-embed-wrapper [type="submit"] {
       display: block !important;
-      background: #ffffff !important;
-      color: #000000 !important;
-      border: 1px solid #ffffff !important;
+      background: #000000 !important;
+      color: #ffffff !important;
+      border: 1px solid #000000 !important;
       cursor: pointer !important;
       font-weight: 600 !important;
       text-transform: uppercase !important;
@@ -218,7 +218,7 @@
 
     .klaviyo-form-VksnpD input::placeholder,
     .klaviyo-embed-wrapper input::placeholder {
-      color: #a3a3a3 !important;
+      color: #525252 !important;
       opacity: 1 !important;
     }
 
@@ -226,7 +226,7 @@
       display: none;
       text-align: center;
       padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.04);
       border: 1px solid var(--border);
     }
 
@@ -252,16 +252,16 @@
       margin: 2px 0;
       font-family: 'Satoshi', sans-serif;
       font-size: 16px;
-      color: #ffffff;
-      background: #1a1a1a;
-      border: 1px solid #ffffff;
+      color: #000000;
+      background: #ffffff;
+      border: 1px solid #000000;
       border-radius: 0;
       box-sizing: border-box;
       -webkit-appearance: none;
       appearance: none;
     }
     .form-placeholder .ph-input::placeholder {
-      color: #a3a3a3;
+      color: #525252;
     }
     .form-placeholder .ph-btn {
       width: 100%;
@@ -273,9 +273,9 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #ffffff;
+      background: #000000;
+      color: #ffffff;
+      border: 1px solid #000000;
       border-radius: 0;
       box-sizing: border-box;
       cursor: default;
