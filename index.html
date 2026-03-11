@@ -162,13 +162,19 @@
       border: 1px solid #000000 !important;
     }
 
-    /* Hide 2nd button (duplicate) */
-    .klaviyo-form-VksnpD button:nth-of-type(2),
-    .klaviyo-form-VksnpD button:nth-child(2),
-    .klaviyo-form-VksnpD input[type="submit"]:nth-of-type(2),
-    .klaviyo-embed-wrapper button:nth-of-type(2),
-    .klaviyo-embed-wrapper button:nth-child(2),
-    .klaviyo-embed-wrapper input[type="submit"]:nth-of-type(2) {
+    /* Hide non-Klaviyo buttons: hide all in container, then show only those inside Klaviyo form */
+    #klaviyo-form-container button,
+    #klaviyo-form-container input[type="submit"] {
+      display: none !important;
+    }
+    .klaviyo-form-VksnpD form button,
+    .klaviyo-form-VksnpD form input[type="submit"] {
+      display: block !important;
+    }
+
+    /* Hide 2nd button if Klaviyo form has duplicates */
+    .klaviyo-form-VksnpD form button:nth-of-type(2),
+    .klaviyo-form-VksnpD form input[type="submit"]:nth-of-type(2) {
       display: none !important;
     }
 
