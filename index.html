@@ -66,7 +66,7 @@
 
     .signup-card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: none;
       padding: 2.5rem;
       max-width: 420px;
       width: 100%;
@@ -83,12 +83,14 @@
     .signup-card p {
       color: var(--text-muted);
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.25rem;
     }
 
     /* Klaviyo form container - minimal styling to avoid conflicts */
     #klaviyo-form-container {
       display: block;
+      margin-top: 0;
+      padding-top: 0;
     }
 
     .klaviyo-embed-wrapper {
@@ -140,6 +142,19 @@
     .klaviyo-embed-wrapper div:has(select):has(input[type="tel"]),
     .klaviyo-embed-wrapper div:has(input[type="tel"]):not(:has(input[type="email"])) {
       display: none !important;
+    }
+
+    /* Email field very close to sign up text */
+    .klaviyo-form-VksnpD,
+    .klaviyo-form-VksnpD form,
+    .klaviyo-form-VksnpD form > div:first-child,
+    .klaviyo-form-VksnpD > div:first-child {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    .klaviyo-form-VksnpD input:first-of-type,
+    .klaviyo-form-VksnpD form input:first-of-type {
+      margin-top: 0 !important;
     }
 
     /* Tighter spacing between form fields */
