@@ -12,6 +12,7 @@
       --text: #000000;
       --text-muted: #525252;
       --border: rgba(0, 0, 0, 0.12);
+      --input-border: #000000;
     }
 
     * {
@@ -110,12 +111,19 @@
       font-size: 1rem;
     }
 
-    #klaviyo-form-container input {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.9rem 1rem;
-      width: 100%;
+    #klaviyo-form-container input,
+    #klaviyo-form-container input[type="email"],
+    #klaviyo-form-container input[type="tel"],
+    .klaviyo-embed-wrapper input {
+      display: block !important;
+      visibility: visible !important;
+      background: #ffffff !important;
+      border: 1px solid var(--input-border) !important;
+      color: var(--text) !important;
+      padding: 0.9rem 1rem !important;
+      width: 100% !important;
+      min-height: 48px !important;
+      opacity: 1 !important;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
 
@@ -175,11 +183,18 @@
       width: 100%;
     }
 
-    .klaviyo-embed-wrapper .klaviyo-form input,
-    .klaviyo-embed-wrapper .klaviyo-form button {
+    /* Ensure Klaviyo form inputs are visible - targets various Klaviyo structures */
+    .klaviyo-form-TCbZ47 input,
+    .klaviyo-embed-wrapper input[type="text"],
+    .klaviyo-embed-wrapper input[type="email"],
+    .klaviyo-embed-wrapper input[type="tel"] {
+      display: block !important;
+      visibility: visible !important;
       background: #ffffff !important;
-      border: 1px solid var(--border) !important;
+      border: 1px solid var(--input-border) !important;
       color: var(--text) !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
     }
 
     .form-success {
