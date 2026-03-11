@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Brand Ambassador | Sinners Testimony®</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-card: #000000;
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+      --border: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Satoshi', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page-header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-link {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .logo-link:hover {
+      text-decoration: underline;
+    }
+
+    .logo-link .tm {
+      font-size: 0.7em;
+      vertical-align: sub;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      color: var(--text-muted);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .btn-discord {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      color: #000000;
+      padding: 1rem 1.75rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      transition: opacity 0.2s;
+    }
+
+    .btn-discord:hover {
+      opacity: 0.9;
+    }
+
+    .hero-image {
+      margin-top: 3rem;
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 18rem;
+      object-fit: cover;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    .benefit-card .icon {
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .benefit-card h3 {
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .images-grid img {
+      width: 100%;
+      height: 16rem;
+      object-fit: cover;
+    }
+
+    @media (max-width: 640px) {
+      .images-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .how-to-section {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .steps-list {
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      background: #ffffff;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .step-item p {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .cta-center {
+      text-align: center;
+    }
+
+    .cta-center .btn-discord {
+      margin-bottom: 1rem;
+    }
+
+    .cta-center .hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .cta-center .hint a {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .page-footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .page-footer p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .page-footer a {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a href="/" class="logo-link">Sinners Testimony<span class="tm">®</span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="https://instagram.com/sinnerstestimony" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-badge">Welcome, Ambassador!</div>
+      <h1>Join Our Brand <span>Ambassador</span> Community</h1>
+      <p>You're one step away from joining an exclusive community of passionate brand ambassadors. Let's get you connected!</p>
+      <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" rel="noopener noreferrer" class="btn-discord">
+        Join Our Discord →
+      </a>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1626895684825-03b8655f26b0?w=1080&q=80" alt="Community collaboration">
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Why Join Our Discord?</h2>
+        <p>Our Discord server is the heart of our ambassador program. Here's what awaits you:</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="icon">★</div>
+          <h3>Exclusive Perks</h3>
+          <p>Get early access to new products, exclusive discounts, and special rewards</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">◇</div>
+          <h3>Vibrant Community</h3>
+          <p>Connect with like-minded ambassadors and grow together</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">✦</div>
+          <h3>Insider Updates</h3>
+          <p>Be the first to know about launches, events, and opportunities</p>
+        </div>
+      </div>
+
+      <div class="images-grid">
+        <img src="https://images.unsplash.com/photo-1629019324504-2e1fdf96e5e0?w=1080&q=80" alt="Diverse networking">
+        <img src="https://images.unsplash.com/photo-1765980752986-849d7f2e6dbd?w=1080&q=80" alt="Brand ambassador">
+      </div>
+    </section>
+
+    <section class="how-to-section">
+      <div class="section-title">
+        <h2>How to Get Started</h2>
+        <p>It only takes a minute to join our community</p>
+      </div>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <p>Click the &lsquo;Join Our Discord&rsquo; button below</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <p>Accept the Discord invite</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <p>Introduce yourself in the #introductions channel</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <p>Start connecting with the community!</p>
+        </div>
+      </div>
+
+      <div class="cta-center">
+        <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" rel="noopener noreferrer" class="btn-discord">
+          Join Our Discord Now →
+        </a>
+        <p class="hint">Don&rsquo;t have Discord? It&rsquo;s free! Download it at <a href="https://discord.com" target="_blank" rel="noopener noreferrer">discord.com</a></p>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>✓ Thousands of ambassadors already connected</p>
+      <p style="margin-top: 0.5rem;">Questions? Reach out at <a href="mailto:hello@sinnerstestimony.com">hello@sinnerstestimony.com</a></p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="https://instagram.com/sinnerstestimony" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
