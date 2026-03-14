@@ -31,6 +31,34 @@
       overflow-x: hidden;
     }
 
+    .top-bar {
+      position: absolute;
+      top: 1.25rem;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 2rem;
+      pointer-events: none;
+    }
+
+    .lock-button {
+      pointer-events: auto;
+      border: 1px solid #000;
+      background: #ffffff;
+      color: #000000;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+
+    .lock-button:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
     /* Lock screen overlay */
     .lock-screen {
       min-height: 100vh;
@@ -349,6 +377,10 @@
 </head>
 <body>
   <div class="lock-screen">
+    <div class="top-bar">
+      <button class="lock-button" type="button" onclick="openLockPrompt()">Unlock</button>
+    </div>
+
     <div class="brand">
       <h1 class="brand-name">Sinners<br>Testimony<span class="tm">®</span></h1>
     </div>
@@ -383,6 +415,7 @@
     </div>
 
     <footer class="page-footer">
+      <a href="/logo.svg" download="sinners-testimony-logo.svg">Download logo (transparent)</a>
       <a href="/ambassador.html">Become a brand ambassador</a>
       <a href="https://instagram.com/sinnerstestimony" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="/privacy.html">Privacy Policy</a>
@@ -391,6 +424,20 @@
 
   <!-- Klaviyo onsite tracking: defer = runs at DOM ready, form injects sooner -->
   <script defer type="text/javascript" src="https://static.klaviyo.com/onsite/js/YkhQZ2/klaviyo.js?company_id=YkhQZ2"></script>
+  <script type="text/javascript">
+    // Simple front-end password gate for product page
+    var ACCESS_PASSWORD = 'DROP001'; // change this to your real password
+
+    function openLockPrompt() {
+      var pwd = window.prompt('Enter password to unlock');
+      if (!pwd) return;
+      if (pwd === ACCESS_PASSWORD) {
+        window.location.href = '/product.html';
+      } else {
+        window.alert('Incorrect password');
+      }
+    }
+  </script>
   <script type="text/javascript">
     !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
   </script>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | Sinners Testimony®</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --text-muted: #525252;
+      --border: rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Satoshi', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .brand-name {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .brand-name .tm {
+      font-size: 0.7em;
+      vertical-align: sub;
+      line-height: 0;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-media {
+      aspect-ratio: 4 / 5; /* 1080 x 1350 */
+      background: #f9f9f9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .product-info .price {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .product-info .description {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .size-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .size-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .size-button {
+      flex: 0 0 auto;
+      min-width: 3rem;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .size-button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    .back-link {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+    }
+
+    .back-link a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="brand-name">
+        Sinners Testimony<span class="tm">®</span>
+      </div>
+    </header>
+
+    <section class="product-layout">
+      <div class="product-media">
+        <img
+          src="/assets/jeans-1080x1350.png"
+          alt="Distressed denim jeans with Sinners Testimony artwork"
+        >
+      </div>
+
+      <div class="product-info">
+        <h1>Drop 001 – Denim</h1>
+        <div class="price">$XXX.00</div>
+        <p class="description">
+          Your first product goes here. Add copy that explains the fit, fabric, and story
+          behind this piece.
+        </p>
+
+        <div class="size-label">Select size (Shopify checkout)</div>
+        <div class="size-grid">
+          <a class="size-button" href="#" data-size="30">30</a>
+          <a class="size-button" href="#" data-size="32">32</a>
+          <a class="size-button" href="#" data-size="34">34</a>
+          <a class="size-button" href="#" data-size="36">36</a>
+        </div>
+
+        <p class="note">
+          Replace each size link with your Shopify checkout URL for that jean size.
+        </p>
+      </div>
+    </section>
+
+    <div class="back-link">
+      <a href="/index.html">← Back to lock screen</a>
+    </div>
+  </main>
+</body>
+</html>
+
